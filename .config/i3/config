@@ -1,0 +1,290 @@
+# i3 config file (v4)
+#
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod4
+floating_modifier $mod 
+
+for_window [class=".*"] border pixel 4
+
+smart_gaps on
+smart_borders on
+
+set $gaps_inner 10
+set $gaps_outer 10
+
+gaps inner $gaps_inner
+gaps outer $gaps_outer
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:Ubuntu Mono, Font Awesome 5 Brands, Font Awesome 5 Free Solid 12
+
+#useless on dekstop
+#exec --no-startup-id nm-applet
+
+# Use pactl to adjust volume in PulseAudio.
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@      +5% && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@      -5% && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   @DEFAULT_SINK@   toggle && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && pkill -RTMIN+10 i3blocks
+
+set $playerctl playerctl --player=spotify,plasma-browser-integration
+bindsym XF86AudioPlay exec "$playerctl play-pause"
+#bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec "$playerctl next"
+bindsym XF86AudioPrev exec "$playerctl previous"
+
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+uring focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+uring move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+# split in vertical orientation
+bindsym $mod+v split v
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+# stacked layout
+bindsym $mod+s layout stacking
+# tabbed layout
+bindsym $mod+w layout tabbed
+# toggle split layout
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+# focus the parent container
+bindsym $mod+a focus parent
+# focus the child container
+#bindsym $mod+d focus child
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1: " 
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9: "
+set $ws10 "10: "
+
+# switch to workspace
+bindsym $mod+plus workspace number $ws1
+bindsym $mod+ecaron workspace number $ws2
+bindsym $mod+scaron workspace number $ws3
+bindsym $mod+ccaron workspace number $ws4
+bindsym $mod+rcaron workspace number $ws5
+bindsym $mod+zcaron workspace number $ws6
+bindsym $mod+yacute workspace number $ws7
+bindsym $mod+aacute workspace number $ws8
+bindsym $mod+iacute workspace number $ws9
+bindsym $mod+eacute workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+plus move container to workspace number $ws1
+bindsym $mod+Shift+ecaron move container to workspace number $ws2
+bindsym $mod+Shift+scaron move container to workspace number $ws3
+bindsym $mod+Shift+ccaron move container to workspace number $ws4
+bindsym $mod+Shift+rcaron move container to workspace number $ws5
+bindsym $mod+Shift+zcaron move container to workspace number $ws6
+bindsym $mod+Shift+yacute move container to workspace number $ws7
+bindsym $mod+Shift+aacute move container to workspace number $ws8
+bindsym $mod+Shift+iacute move container to workspace number $ws9
+bindsym $mod+Shift+eacute move container to workspace number $ws10
+
+bindsym $mod+shift+comma move workspace to output left
+bindsym $mod+shift+period move workspace to output right
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym uring resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+    bindsym plus  gaps inner current plus 5
+    bindsym minus gaps inner current minus 5
+    bindsym 0     gaps inner current set 0
+
+    bindsym Shift+plus  gaps inner all plus 5
+    bindsym Shift+minus gaps inner all minus 5
+    bindsym Shift+0     gaps inner all set 0
+
+    bindsym d           gaps inner current set $gaps_inner
+    bindsym Shift+d     gaps inner all set $gaps_inner
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+    bindsym plus  gaps outer current plus 5
+    bindsym minus gaps outer current minus 5
+    bindsym 0     gaps outer current set 0
+
+    bindsym Shift+plus  gaps outer all plus 5
+    bindsym Shift+minus gaps outer all minus 5
+    bindsym Shift+0     gaps outer all set 0
+
+    bindsym d           gaps outer current set $gaps_outer
+    bindsym Shift+d     gaps outer all set $gaps_outer
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+
+#set $bg-color 	         #008fa0
+#set $inactive-bg-color   #10151a
+#set $text-color          #eceff1
+#set $inactive-text-color #384a54
+#set $urgent-bg-color     #f66605
+#set $indicator           #007E8D
+
+set $bg-color 	         #454f63
+set $inactive-bg-color   #0f1419
+set $text-color          #e1e5ea
+set $inactive-text-color #454f63
+set $urgent-bg-color     #e35963
+set $indicator           #71bfff
+
+# window colors
+#                       border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          $indicator 
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator 
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $indicator
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+    status_command i3blocks -c ~/.config/i3blocks/i3blocks 
+	position top
+	colors {
+		background $inactive-bg-color
+        separator #757575
+		#                  border             background         text
+		focused_workspace  $bg-color          $bg-color          $text-color
+		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+	}
+}
+
+set $bindir /home/adam/.config/i3/scripts/
+bindsym $mod+Shift+x exec "$bindir/i3lockmore --image-fill /usr/share/dynamic-wallpaper/images/firewatch/$(($(date +%k)/1)).png --blur 3"
+bindsym $mod+Shift+y exec "$bindir/rofi-shutdown"
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Shift+s exec "flameshot gui" 
+# start rofi (a program launcher)
+bindsym $mod+d exec rofi -show drun
+# start a terminal
+bindsym $mod+Return exec alacritty
+
+# Assing workspaces to programs
+assign [class="^Firefox"] $ws1
+assign [class="^Texmaker"] $ws3
+assign [class="^discord"] $ws9
+assign [class="Spotify"] $ws
+for_window [class="Spotify"] move to workspace $ws10
+
+# KDE stuff
+for_window [title="Desktop — Plasma"] kill; floating enable; border none
+for_window [class="plasmashell"] floating enable;
+for_window [class="Plasma"] floating enable; border none
+for_window [title="plasma-desktop"] floating enable; border none
+for_window [title="win7"] floating enable; border none
+for_window [class="krunner"] floating enable; border none
+for_window [class="Kmix"] floating enable; border none
+for_window [class="Klipper"] floating enable; border none
+for_window [class="Plasmoidviewer"] floating enable; border none
+for_window [class="(?i)*nextcloud*"] floating disable
+for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px
+no_focus [class="plasmashell" window_type="notification"] 
+
+#default gitk to fullscreen
+for_window [class="^Gitk"] fullscreen enable
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen
+exec xset dpms 180 180 180 
+exec --no-startup-id xss-lock --transfer-sleep-lock "$bindir/lock.sh"
+
+
+exec --no-startup-id  "dwall -s firewatch &"
+exec --no-startup-id "picom"
+exec --no-startup-id ~/.config/redshift/start.sh
+exec firefox
+exec --no-startup-id "python3 /home/adam/Documents/work/python/autohomeworkcalendar/kvinta.py"
+exec_always --no-startup-id numlockx on 

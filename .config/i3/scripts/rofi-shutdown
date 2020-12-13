@@ -1,0 +1,28 @@
+#!/bin/bash
+
+chosen=$(echo -e \
+	"[Cancel]\0icon\x1frofi-cancel\n\
+Shutdown\0icon\x1frofi-shutdown\n\
+Reboot\0icon\x1frofi-reboot\n\
+Lock\0icon\x1frofi-lock-screen\n\
+Logout\0icon\x1frofi-log-out\n\
+Suspend\0icon\x1frofi-suspend\n\
+Suspend then hibernate\0icon\x1frofi-suspend-hibernate" \
+	| rofi -dmenu -i -width 20 -lines 7 -p "Power")
+
+# Info about some states are available here:
+# https://www.freedesktop.org/software/systemd/man/systemd-sleep.conf.html#Description
+
+if [[ $chosen = "Logout" ]]; then
+	i3-msg exit
+elif [[ $chosen = "Shutdown" ]]; then
+	systemctl poweroff
+elif [[ $chosen = "Lock" ]]; then
+	loginctl lock-session
+elif [[ $chosen = "Reboot" ]]; then
+	systemctl reboot
+elif [[ $chosen = "Suspend" ]]; then
+	systemctl suspend
+elif [[ $chosen = "Suspend then hibernate" ]]; then
+	systemctl suspend-then-hibernate
+fi
