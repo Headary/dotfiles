@@ -23,6 +23,9 @@ font pango:Ubuntu Mono, Font Awesome 5 Brands, Font Awesome 5 Free Solid 12
 #useless on dekstop
 #exec --no-startup-id nm-applet
 
+# load Xresources
+exec_always --no-startup-id xrdb ~/.config/.Xresources
+
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@      +5% && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@      -5% && pkill -RTMIN+10 i3blocks
@@ -205,26 +208,27 @@ mode "$mode_gaps_outer" {
     bindsym Escape mode "default"
 }
 
+#set $bg-color 	         #454f63
+#set $inactive-bg-color   #0f1419
+#set $text-color          #e1e5ea
+#set $inactive-text-color #454f63
+#set $urgent-bg-color     #e35963
+#set $indicator           #71bfff
 
-#set $bg-color 	         #008fa0
-#set $inactive-bg-color   #10151a
-#set $text-color          #eceff1
-#set $inactive-text-color #384a54
-#set $urgent-bg-color     #f66605
-#set $indicator           #007E8D
 
-set $bg-color 	         #454f63
-set $inactive-bg-color   #0f1419
-set $text-color          #e1e5ea
-set $inactive-text-color #454f63
-set $urgent-bg-color     #e35963
-set $indicator           #71bfff
+set_from_resource $bg-color 	       color0     #454f63
+set_from_resource $inactive-bg-color   background #0f1419
+set_from_resource $focused-bg-color    color8     #0f1419
+set_from_resource $text-color          foreground #e1e5ea
+set_from_resource $inactive-text-color color8     #454f63
+set_from_resource $urgent-bg-color     color1     #e35963
+set_from_resource $indicator           color12    #71bfff
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          $indicator 
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator 
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator
+client.focused          $focused-bg-color   $focused-bg-color  $text-color          $indicator 
+client.unfocused        $bg-color           $bg-color          $inactive-text-color $indicator 
+client.focused_inactive $bg-color           $bg-color          $inactive-text-color $indicator 
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $indicator
 
 # Start i3bar to display a workspace bar (plus the system information i3status
