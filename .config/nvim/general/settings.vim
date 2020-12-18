@@ -36,6 +36,9 @@ set clipboard=unnamedplus               " Copy paste between vim and everything 
 "set autochdir                           " Your working directory will always be the same as your working directory
 set ignorecase                          " ignore cases when searching
 
+" set spell checking
+set spell spelllang=cs,en
+
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vim alternatively you can run :source $MYVIMRC
 
 " You can't stop me

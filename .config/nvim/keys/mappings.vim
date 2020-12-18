@@ -54,3 +54,5 @@ vmap <C-c> y
 vmap <C-x> x
 " CTRL-V to paste (insert mode)
 imap <C-v> <esc>P
+
+nnoremap <F5> :set spell!<CR>
