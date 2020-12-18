@@ -6,3 +6,4 @@
 | WM        | i3-gaps       |
 | Shell     | Bash          |
 | Icons     | Breeze Dark   |
+| Editor    | Neovim        |
