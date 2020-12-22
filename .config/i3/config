@@ -23,9 +23,6 @@ font pango:Ubuntu Mono, Font Awesome 5 Brands, Font Awesome 5 Free Solid 12
 #useless on dekstop
 #exec --no-startup-id nm-applet
 
-# load Xresources
-exec_always --no-startup-id xrdb ~/.config/.Xresources
-
 # Use pactl to adjust volume in PulseAudio.
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@      +5% && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@      -5% && pkill -RTMIN+10 i3blocks
@@ -247,7 +244,7 @@ bar {
 }
 
 set $bindir /home/adam/.config/i3/scripts/
-bindsym $mod+Shift+x exec "$bindir/i3lockmore --image-fill /usr/share/dynamic-wallpaper/images/firewatch/$(($(date +%k)/1)).png --blur 3"
+bindsym $mod+Shift+x exec "$bindir/lock.sh"
 bindsym $mod+Shift+y exec "$bindir/rofi-shutdown"
 bindsym $mod+Tab workspace back_and_forth
 bindsym $mod+Shift+s exec "flameshot gui" 
@@ -286,7 +283,7 @@ exec xset dpms 180 180 180
 exec --no-startup-id xss-lock --transfer-sleep-lock "$bindir/lock.sh"
 
 
-exec --no-startup-id  "dwall -s firewatch &"
+exec --no-startup-id  "dwall -s firewatch2 &"
 exec --no-startup-id "picom"
 exec --no-startup-id ~/.config/redshift/start.sh
 exec firefox

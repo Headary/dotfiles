@@ -1,0 +1,31 @@
+#!/bin/bash
+
+dir="/usr/share/dynamic-wallpaper/images/firewatch2"
+ext=".jpg"
+cache="$HOME/.cache/i3lock"
+blur_level=3
+
+mkdir -p $cache 
+
+check_file_exists () {
+    if [[ ! -f "$1" ]]; then
+        echo "File \"$1\" does not exist!"
+        return 1
+    fi
+    return 0
+}
+
+for img in $dir/*$ext; do
+    res=$(xdpyinfo | grep dimensions | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/')
+
+    if check_file_exists "$img"; then
+        blur_shrink=$(echo "scale=2; 20 / $blur_level" | bc)
+        blur_sigma=$(echo "scale=2; 0.6 * $blur_level" | bc)
+        convert "$img" \
+            -filter Gaussian \
+            -resize "$blur_shrink%" \
+            -define "filter:sigma=$blur_sigma" \
+            -resize "$res^" -gravity center -extent "$res" \
+            "$cache/$(basename $img)"
+    fi    
+done

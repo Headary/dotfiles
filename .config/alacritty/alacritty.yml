@@ -670,10 +670,11 @@ key_bindings:
   #- { key: Copy,                                 action: Copy           }
   #- { key: L,         mods: Control,             action: ClearLogNotice }
   #- { key: L,         mods: Control, mode: ~Vi,  chars: "\x0c"          }
-  #- { key: PageUp,    mods: Shift,   mode: ~Alt, action: ScrollPageUp,  }
-  #- { key: PageDown,  mods: Shift,   mode: ~Alt, action: ScrollPageDown }
+  - { key: PageUp,                    mode: ~Alt, action: ScrollPageUp,  }
+  - { key: PageDown,                  mode: ~Alt, action: ScrollPageDown }
   #- { key: Home,      mods: Shift,   mode: ~Alt, action: ScrollToTop,   }
   #- { key: End,       mods: Shift,   mode: ~Alt, action: ScrollToBottom }
+  - { key: Back,      mods: Control,  mode: ~Alt, chars: "\x17"          }
 
   # Vi Mode
   #- { key: Space,  mods: Shift|Control, mode: Vi, action: ScrollToBottom          }
@@ -727,7 +728,7 @@ key_bindings:
   # (Windows, Linux, and BSD only)
   #- { key: V,              mods: Control|Shift,           action: Paste            }
   #- { key: C,              mods: Control|Shift,           action: Copy             }
-  #- { key: F,              mods: Control|Shift,           action: SearchForward    }
+  - { key: F,              mods: Control,                  action: SearchForward    }
   #- { key: B,              mods: Control|Shift,           action: SearchBackward   }
   #- { key: C,              mods: Control|Shift, mode: Vi, action: ClearSelection   }
   #- { key: Insert,         mods: Shift,                   action: PasteSelection   }

@@ -23,7 +23,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'vim-airline/vim-airline-themes'
     " Latex Support
     Plug 'lervag/vimtex'
-
+    " Snippet support
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
 call plug#end()
 
 " Auto install missing plugins

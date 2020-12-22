@@ -55,4 +55,5 @@ vmap <C-x> x
 " CTRL-V to paste (insert mode)
 imap <C-v> <esc>P
 
+nnoremap <F1> :VimtexCompile<CR>
 nnoremap <F5> :set spell!<CR>
