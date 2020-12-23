@@ -1,0 +1,203 @@
+:root {
+	--bar-height: 120px;
+}
+
+/*Round corner cover image*/
+.card-image,
+.card-placeholder-wrapper,
+.card-image-content-wrapper,
+.Card:not(.Card--artist) .Card__image,
+.Card:not(.Card--artist) .Card__image-wrapper {
+	border-radius: 10px !important;
+	overflow: hidden !important
+}
+
+/*Thinner scrollbar*/
+::-webkit-scrollbar {
+	width: 8px !important;
+	background-color: transparent;
+}
+
+/*Round corner scrollbar*/
+::-webkit-scrollbar-thumb {
+	border-radius: 4px !important;
+}
+
+/*Hide top and bottom buttons of scrollbar */
+/*who uses those, lol*/
+::-webkit-scrollbar-button {
+	display: none !important;
+}
+
+/*Hide cover image overlay*/
+.card-overlay {
+	visibility: hidden !important;
+}
+
+glue-page-header__content .glue-page-header__image-inner {
+	border-radius: 10px;
+	box-shadow: unset !important;
+}
+
+.glue-page-header__full-description-overlay {
+	box-shadow: unset !important;
+}
+
+.card-placeholder-wrapper {
+	background: transparent !important;
+}
+
+/*Spice up search input background*/
+.SearchInput {
+	color: var(--modspotify_main_fg);
+}
+.SearchInput__input {
+	color: var(--modspotify_secondary_fg);
+	background-color: rgba(var(--modspotify_rgb_scrollbar_fg_and_selected_row_bg), 0.5) !important;
+	border-radius: 4px !important;
+	padding-left: 34px;
+}
+
+.sidebar:hover .sidebar-navbar.sidebar-scroll-element {
+    opacity: 1 !important;
+}
+
+/*'New Playlist' Button Removed - Change 'None' to 'Absolute' to re-enable it*/
+.LeftSidebarNewPlaylistButton__button {
+	display: none;
+}
+
+/*
+Remove those title, cringy description and
+meaningless followers number
+*/
+
+.carousel .card-info-subtitle-description,
+.carousel .card-info-subtitle-metadata,
+.carousel .card:not(.card-type-station).card-info-title,
+.carousel .card.card-type-playlist.image-loaded .card-info-subtitle-description,
+.carousel .card.card-type-playlist.image-loaded .card-info-subtitle-metadata {
+	display: none !important;
+}
+
+/*
+Button with text Play
+*/
+.button.button-green,
+.Button--style-green, 
+.GlueButton.GlueButton--style-green {
+	color: var(--modspotify_main_bg) !important;
+}
+
+/* Spice up Fullscreen mode */
+#view-player .album-art .album-art__image {
+	border-radius: 30px !important;
+	box-shadow: 0 10px 70px rgba(var(--modspotify_rgb_cover_overlay_and_shadow),.5) !important;
+}
+
+#view-player .album-art .album-art__image .card-image-content-wrapper,
+#view-player .album-art .album-art__image .card-image-content-wrapper .card-image {
+	border-radius: 30px !important;
+}
+
+#video-player .album-art__foreground {
+	flex-direction: row;
+	text-align: left;	
+}
+
+#video-player .album-art__background {
+	background-color: initial;
+}
+
+#video-player .album-art__track-details {
+	padding-left: 50px;
+	line-height: initial;
+}
+
+#video-player .album-art__track-title {
+	font-size: 84px;
+	margin-top: 0;
+	line-height: initial;
+}
+
+#video-player .album-art__artist-name {
+	font-size: 54px;
+	margin-top: 0;
+	line-height: initial;
+}
+
+#now-playing-image-small .cover-image {
+    border-radius: 10px;
+}
+
+
+.glue-page-header:not(.glue-page-header--album):not(.glue-page-header--playlist):not(.glue-page-header--artist):not(.glue-page-header--dailymix):not(.glue-page-header--user):not(.glue-page-header--show)
+	.glue-page-header__content-inner .glue-page-header__title-text,
+.HomeHeader .Header__content-inner .Header__title-text-inner,
+.MadeForYouHeader .Header__content-inner .Header__title-text-inner,
+.RecentlyPlayedPage__header .Header__content-inner .Header__title-text-inner {
+	background-color: var(--modspotify_main_bg);
+	padding: 5px 20px;
+	border: 5px solid var(--modspotify_main_fg) !important;
+	border-radius: 6px;
+	box-shadow: 0 4px 12px 0 rgba(var(--modspotify_rgb_cover_overlay_and_shadow),.2);
+	text-transform: uppercase;
+}
+
+.glue-page-header.glue-page-header--album .glue-page-header__content-inner .glue-page-header__title,
+.glue-page-header.glue-page-header--artist .glue-page-header__content-inner .glue-page-header__title,
+.glue-page-header.glue-page-header--dailymix .glue-page-header__content-inner .glue-page-header__title,
+.glue-page-header.glue-page-header--playlist .glue-page-header__content-inner .glue-page-header__title {
+	margin-top: 10px;
+}
+
+span.glue-page-header__title-text {
+	color: var(--modspotify_main_fg);
+}
+
+.glue-page-header .glue-page-header__content-inner .glue-page-header__button {
+	margin-top: 40px;
+}
+
+.glue-page-header__content-inner,
+.glue-page-header__data,
+.glue-page-header__title,
+.Header__content-inner,
+.Header__data,
+.Header__title,
+.Header__title-text,
+.Header__title-text-inner {
+	overflow: visible !important;
+}
+
+.glue-page-header__p2s-details,
+.glue-page-header__p2s-followers {
+	display: none;
+}
+
+#menu-wrapper ::-webkit-scrollbar {
+	display: none;
+}
+
+.main-view-wrapper {
+	overflow: unset;
+}
+
+.GlueHeader__background-overlay {
+	background: var(--modspotify_main_bg) !important;
+}
+
+.Header__background-color,
+.glue-page-header__background-color{
+	background-color: var(--modspotify_main_bg) !important;
+    background-image: none !important;
+}
+
+.Header__background-overlay,
+.glue-page-header__background-overlay {
+    background-color: transparent !important;
+}
+
+.Header__image-inner {
+	box-shadow: unset;
+}
