@@ -26,6 +26,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Snippet support
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
+    " colors
+    Plug 'chrisbra/Colorizer'
 call plug#end()
 
 " Auto install missing plugins
