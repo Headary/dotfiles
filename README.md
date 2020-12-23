@@ -23,4 +23,4 @@
 
 
 ## Other
-    * Discord theme: [NYRI4/Comfy-theme](https://github.com/NYRI4/Comfy-theme) (modified colors)
+* Discord theme: [NYRI4/Comfy-theme](https://github.com/NYRI4/Comfy-theme) (modified colors)
