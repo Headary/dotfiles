@@ -2,6 +2,8 @@
 
 * OS: Kubuntu 20.04
 
+# Specifications
+
 | Function      | Program                   | Configuration
 | ------------- | ------------------------- | ------------
 | WM            | [i3-gaps](https://github.com/Airblader/i3)              | [i3/config](.config/i3/config)
@@ -18,3 +20,7 @@
 | Compositor    | [picom](https://github.com/yshui/picom)                | [picom.conf](.config/picom/picom.conf)
 | App launcher  | [rofi](https://github.com/davatorium/rofi)                 | [config.rasi](.config/rofi/config.rasi)
 | Spotify theme | [spicetify](https://github.com/khanhas/spicetify-cli)            | [custom theme](.config/spicetify/Themes/Xresources)
+
+
+## Other
+    * Discord theme: [NYRI4/Comfy-theme](https://github.com/NYRI4/Comfy-theme) (modified colors)
