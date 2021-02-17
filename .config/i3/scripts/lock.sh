@@ -19,7 +19,7 @@ font="Ubuntu Mono"
 locktext='Type password to unlock...'
 
 i3lock \
-    -n -t -c 000000 \
+    -n -t -c 000000 -S 1\
     -i "$HOME/.cache/i3lock/$(($(date +%k)/1)).jpg" \
     --timepos='x+45:h-70' \
     --datepos='x+47:h-45' \
@@ -28,7 +28,7 @@ i3lock \
     --insidecolor=$background --ringcolor=$black --line-uses-inside \
     --keyhlcolor=$green --bshlcolor=$red --separatorcolor=$transparent \
     --insidevercolor=$background --insidewrongcolor=$background \
-    --ringvercolor=$blue --ringwrongcolor=$red --indpos='w/2:h/2' \
+    --ringvercolor=$blue --ringwrongcolor=$red --indpos='2360:h/2' \
     --radius=90 --ring-width=10 --veriftext='' --wrongtext='Wrong' \
     --verifcolor=$foreground --timecolor=$foreground \
     --datecolor=$foreground --wrongcolor=$foreground\

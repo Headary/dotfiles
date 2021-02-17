@@ -64,7 +64,7 @@ glue-page-header__content .glue-page-header__image-inner {
 
 /*'New Playlist' Button Removed - Change 'None' to 'Absolute' to re-enable it*/
 .LeftSidebarNewPlaylistButton__button {
-	display: none;
+	display: absolute;
 }
 
 /*

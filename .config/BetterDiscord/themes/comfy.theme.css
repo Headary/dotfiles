@@ -5,9 +5,30 @@
  * @version 1.0.0
  */
 
- @import "https://nyri4.github.io/Comfy-theme/BetterDiscord/main.css";
+ @import "https://nyri4.github.io/Comfy/BetterDiscord/main.css";
 
- :root { 
+
+/* No scrollbars --> Delete all until "Mention color" if u don't want it */
+/*::-webkit-scrollbar { display: none !important;}
+.note-3HfJZ5 { margin-right: 0; }
+.content-1x5b-n { margin: 0 !important; border-radius: 0; }
+.mainContent-u_9PKf { padding-left: 8px;}
+.member-3-YXUe, [id*="private-channels-"] { margin: 0; max-width: unset; }
+.layout-2DM8Md { border-radius: 0; padding: 0 16px;}
+.unread-2lAfLh { z-index: 1;}
+.content-1LAB8Z, .item-1tOPte { margin-right: 8px;}
+.scroller-2hZ97C { padding-left: 0;}
+.scroller-2hZ97C > .content-3YMskv, .buttons-3JBrkn, .messagesPopout-24nkyi { padding-right: 10px !important; }
+.inviteRow-2L02ae {border-radius: 0; padding-left: 15px;}
+.sidebar-CFHs9e { padding-right : 0; margin: 0 40px 0 20px;}
+.sidebarRegion-VFTUkN { flex: unset;}
+.contentColumn-2hrIYH, .sidebarScrollable-1qPI87+.content-1rPSz4, .customScroller-26gWhv>div, .customColumn-Rb6toI, .hero-EvfTTA { max-width: none;}
+.featuresHeader-4YwLcc { margin-left: 95px;}
+.userSettingsVoice-iwdUCU, .container-3PXSwK { width: auto !important;}
+.menu-3sdvDG .layer-v9HyYc { margin-left: -8px;}*/
+
+
+:root { 
  
      /* -- Addons -- */
  
@@ -43,35 +64,35 @@
      /* Discord logo */
      --discord-logo: none; /* Set it to "block" if u want it */
  
- } /* thx snapperito and Harley for the help :3 */
- 
- .theme-dark {
-     --background-tertiary: #252a32 !important;
-     --background-secondary: #191e23 !important;
-     --background-secondary-alt: #0f1419 !important;
-     --background-primary: #0f1419 !important;
-     --channeltextarea-background: #252a32 !important;
-     --background-accent: #6E85D3 !important;
-     --background-modifier-hover: #252a32 !important;
-     --background-modifier-active: #0f1419 !important;
-     --background-modifier-selected: #252a32 !important;
-     --deprecated-card-bg: #12141f63 !important;
-     --background-floating: #101320 !important;
-     --deprecated-quickswitcher-input-background:#101320 !important;
-     --scrollbar-auto-thumb: #252a32 !important;
-     --scrollbar-auto-track: #191e23 !important;
-     --scrollbar-thin-thumb: #252a32 !important;
-     --spotify-color: #8ec16a !important;
-     --elevation-low: none;
- }
- 
- .theme-light {
-     --background-tertiary: #101320 !important;
-     --background-secondary: #1e2233 !important;
-     --background-secondary-alt: #191f2e !important;
-     --background-primary: #23283d !important;
-     --header-primary: #fff !important;
-     --header-secondary: #b1b5b9 !important;
-     --text-normal: #8e9297 !important;
-     --scrollbar-thin-thumb: #141925 !important;
- }
+ } 
+
+.theme-dark {
+    --background-tertiary: #252a32 !important;
+    --background-secondary: #191e23 !important;
+    --background-secondary-alt: #0f1419 !important;
+    --background-primary: #0f1419 !important;
+    --channeltextarea-background: #252a32 !important;
+    --background-accent: #252a32 !important;
+    --background-modifier-hover: #252a32 !important;
+    --background-modifier-active: #0f1419 !important;
+    --background-modifier-selected: #252a32 !important;
+    --deprecated-card-bg: #12141f63 !important;
+    --background-floating: #101320 !important;
+    --deprecated-quickswitcher-input-background:#101320 !important;
+    --scrollbar-auto-thumb: #252a32 !important;
+    --scrollbar-auto-track: #191e23 !important;
+    --scrollbar-thin-thumb: #252a32 !important;
+    --spotify-color: #8ec16a !important;
+    --elevation-low: none;
+}
+
+.theme-light {
+    --background-tertiary: #101320 !important;
+    --background-secondary: #1e2233 !important;
+    --background-secondary-alt: #191f2e !important;
+    --background-primary: #23283d !important;
+    --header-primary: #fff !important;
+    --header-secondary: #b1b5b9 !important;
+    --text-normal: #8e9297 !important;
+    --scrollbar-thin-thumb: #141925 !important;
+}

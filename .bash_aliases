@@ -2,6 +2,12 @@
 function open () {
     xdg-open "$*" &
 }
+
+function touchtoday(){
+    today=$(date +'%Y-%m-%d')
+    touch "$today$*"
+}
+
 alias py="python3"
 #alias pip="pip3"
 alias pingg="ping 8.8.8.8"
@@ -9,6 +15,7 @@ alias pls="sudo !!"
 
 alias cp="cp -i"
 alias vim="nvim"
+alias vi="nvim"
 
 # Power options
 alias sd="shutdown now"
@@ -24,8 +31,11 @@ alias .....="cd ../../../.."
 alias vyfuk="cd ~/Documents/vyfuk/git/vyfuk10"
 alias fykos="cd ~/Documents/fykos/r34"
 alias olympics="cd ~/Documents/olympiády"
-alias school="cd ~/Documents/school"
 alias fks-texmf="cd ~/Documents/vyfuk/git/fks-texmf/texmf/tex/latex/fks"
+
+function school() {
+    cd $(rofi-school)
+}
 
 #git
 alias ga="git add"

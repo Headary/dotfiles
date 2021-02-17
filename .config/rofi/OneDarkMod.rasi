@@ -37,6 +37,7 @@
     lightbg:                     rgba ( 225, 229, 234, 100 % );
     spacing:                     3;
     separatorcolor:              @foreground;
+    font:                        "UbuntuMono 12";
 }
 
 #window {
@@ -83,6 +84,7 @@
 #element.selected.normal {
     background-color: @selected-normal-background;
     text-color:       @selected-normal-foreground;
+    border-radius: 6px;
 }
 #element.selected.urgent {
     background-color: @selected-urgent-background;
@@ -143,4 +145,10 @@
     str:        ":";
     margin:     0px 0.3em 0em 0em ;
     text-color: @normal-foreground;
+}
+element {
+    vertical-align: 0.5;
+}
+element-icon {
+    size: 16;
 }

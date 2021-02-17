@@ -1,8 +1,8 @@
 configuration {
 	modi: "window,run,ssh,drun,keys,windowcd,combi";
-/*	width: 50;*/
+	width: 40;
 /*	lines: 15;*/
-/*	columns: 1;*/
+	columns: 2;
 /*	font: "Ubuntu Mono 12";*/
 /*	bw: 1;*/
 /*	location: 0;*/
@@ -67,7 +67,7 @@ configuration {
 /*	display-windowcd: ;*/
 /*	display-run: ;*/
 /*	display-ssh: ;*/
-/*	display-drun: ;*/
+	display-drun: "Open" ;
 /*	display-combi: ;*/
 /*	display-keys: ;*/
 /*	kb-primary-paste: "Control+V,Shift+Insert";*/

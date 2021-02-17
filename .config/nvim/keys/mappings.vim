@@ -40,10 +40,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-noremap ů l
-noremap l k
-noremap k j
-noremap j h
+" noremap ů l
+" noremap l k
+" noremap k j
+" noremap j h
 
 nnoremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
@@ -55,5 +55,6 @@ vmap <C-x> x
 " CTRL-V to paste (insert mode)
 imap <C-v> <esc>P
 
-nnoremap <F1> :VimtexCompile<CR>
-nnoremap <F5> :set spell!<CR>
+nnoremap <silent> <F1> :VimtexCompile<CR>
+nnoremap <silent> <F5> :set spell!<CR>
+imap <C-BS> <C-W>

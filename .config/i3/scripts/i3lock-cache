@@ -1,11 +1,13 @@
 #!/bin/bash
 
-dir="/usr/share/dynamic-wallpaper/images/firewatch2"
+dir="/usr/share/dynamic-wallpaper/images/lakeside"
 ext=".jpg"
 cache="$HOME/.cache/i3lock"
+TMP="/tmp/i3lock"
 blur_level=3
 
 mkdir -p $cache 
+mkdir -p $TMP 
 
 check_file_exists () {
     if [[ ! -f "$1" ]]; then
@@ -15,17 +17,54 @@ check_file_exists () {
     return 0
 }
 
-for img in $dir/*$ext; do
-    res=$(xdpyinfo | grep dimensions | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/')
+get_display_list () {
+	local count=0
+	mapfile -t displays < <(xrandr --listactivemonitors)
+	for display in "${displays[@]:1}"; do
+		((count++))
+		display="$(echo "$display" | sed -r 's/\/[0-9]*//g')"
+		IFS=' ' read -r -a info  <<< "$display"
+		DISPLAY_LIST+=("$count ${info[3]} ${info[2]}")
+	done
+}
 
-    if check_file_exists "$img"; then
-        blur_shrink=$(echo "scale=2; 20 / $blur_level" | bc)
-        blur_sigma=$(echo "scale=2; 0.6 * $blur_level" | bc)
+generate_image () {
+    img=$1
+    OUTPUT="$cache/$(basename $img)"
+    TOTAL_SIZE=$(xdpyinfo | grep dimensions | sed -r 's/^[^0-9]*([0-9]+x[0-9]+).*$/\1/')
+    blur_shrink=$(echo "scale=2; 20 / $blur_level" | bc)
+    blur_sigma=$(echo "scale=2; 0.6 * $blur_level" | bc)
+
+    get_display_list
+    convert -size $TOTAL_SIZE 'xc:blue' $OUTPUT # create base image 
+    for ((i=0; i<${#DISPLAY_LIST[@]}; i++)); do
+        display="${DISPLAY_LIST[$i]}"
+
+        IFS=' ' read -r -a dinfo  <<< "$display"
+        local id="${dinfo[0]}"
+        local device="${dinfo[1]}"
+        local geometry="${dinfo[2]}"
+
+        read -r -a cols <<< "${geometry//[x+-]/ }"
+        local position="${geometry#*${cols[1]}}"
+        local resolution="${geometry%${position}*}"
+
         convert "$img" \
             -filter Gaussian \
             -resize "$blur_shrink%" \
             -define "filter:sigma=$blur_sigma" \
-            -resize "$res^" -gravity center -extent "$res" \
-            "$cache/$(basename $img)"
-    fi    
+            -resize "$resolution^" \
+            -gravity center -extent "$resolution" \
+            "$TMP/resized$ext"
+
+            convert $OUTPUT "$TMP/resized$ext" -geometry $position -composite $OUTPUT
+    done
+    echo "Converting of image $img done"
+}
+
+for img in $dir/*$ext; do
+    if check_file_exists "$img"; then
+        echo "Converting image $img"
+        generate_image $img
+    fi
 done

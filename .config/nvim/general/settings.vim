@@ -40,8 +40,11 @@ set ignorecase                          " ignore cases when searching
 set spell spelllang=cs,en
 set spell! " turn off by default
 
+set scrolloff=5
+
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vim alternatively you can run :source $MYVIMRC
-au BufRead,BufNewFile *.tex set colorcolumn=80
-au BufRead,BufNewFile *.tex set spell 
+au BufRead,BufNewFile *.tex,*.md set colorcolumn=80
+au BufRead,BufNewFile *.tex,*.md set spell 
+au BufRead,BufNewFile *.cls,*.sty set syntax=tex
 " You can't stop me
 cmap w!! w !sudo tee %
