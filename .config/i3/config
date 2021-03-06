@@ -29,16 +29,17 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   @DEFAULT_SINK@   toggle && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && pkill -RTMIN+10 i3blocks
 
-set $playerctl playerctl --player=spotify,plasma-browser-integration
+set $playerctl playerctl --player=spotify,firefox
 bindsym XF86AudioPlay exec "$playerctl play-pause"
 #bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec "$playerctl next"
 bindsym XF86AudioPrev exec "$playerctl previous"
+bindsym XF86AudioStop exec "$playerctl stop"
 
 #XF86Explorer
 #XF86HomePage
 #XF86Mail
-#XF86Tools
+bindsym XF86Tools exec spotify
 
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 
@@ -101,7 +102,7 @@ set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7: "
-set $ws8 "8: "
+set $ws8 "8"
 set $ws9 "9: "
 set $ws10 "10: "
 
@@ -148,16 +149,16 @@ bindsym $mod+shift+period move workspace to output right
 set $monitor1 DP1
 set $monitor2 HDMI1
 
-workspace 1 output primary
-workspace 2 output primary
-workspace 3 output primary
-workspace 4 output primary
-workspace 5 output primary
-workspace 6 output primary
-workspace 7 output primary
-workspace 8 output primary
-workspace 9 output secondary
-workspace 10 output secondary
+workspace $ws1 output $monitor1
+workspace $ws2 output $monitor1
+workspace $ws3 output $monitor1
+workspace $ws4 output $monitor1
+workspace $ws5 output $monitor1
+workspace $ws6 output $monitor1
+workspace $ws7 output $monitor1
+workspace $ws8 output $monitor2
+workspace $ws9 output $monitor2
+workspace $ws10 output $monitor2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -274,7 +275,7 @@ bar {
 	}
 }
 
-set $bindir /home/adam/.config/i3/scripts/
+set $bindir /home/adam/.config/i3/scripts
 bindsym $mod+Shift+x exec "$bindir/lock.sh"
 bindsym $mod+Shift+y exec "$bindir/rofi-shutdown"
 bindsym $mod+Tab workspace back_and_forth
@@ -287,8 +288,8 @@ bindsym $mod+Return exec alacritty
 # Assing workspaces to programs
 assign [class="^Firefox"] $ws1
 assign [class="^Texmaker"] $ws3
-assign [class="^Steam"] $ws8
-assign [title="^Steam"] $ws8
+assign [class="^Steam"] $ws7
+assign [title="^Steam"] $ws7
 assign [class="^discord"] $ws9
 for_window [class="Spotify"] move to workspace $ws10
 

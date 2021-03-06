@@ -105,7 +105,7 @@ fi
 # Add custom folder for commands
 export PATH="$HOME/bin:$PATH"
 export EDITOR="nvim"
-
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).

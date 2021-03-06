@@ -5,45 +5,68 @@
  * @version 1.0.0
  */
 
- @import "https://nyri4.github.io/Comfy/BetterDiscord/main.css";
+@import "https://nyri4.github.io/Comfy/main.css";
 
 
-/* No scrollbars --> Delete all until "Mention color" if u don't want it */
-/*::-webkit-scrollbar { display: none !important;}
-.note-3HfJZ5 { margin-right: 0; }
-.content-1x5b-n { margin: 0 !important; border-radius: 0; }
-.mainContent-u_9PKf { padding-left: 8px;}
-.member-3-YXUe, [id*="private-channels-"] { margin: 0; max-width: unset; }
-.layout-2DM8Md { border-radius: 0; padding: 0 16px;}
-.unread-2lAfLh { z-index: 1;}
-.content-1LAB8Z, .item-1tOPte { margin-right: 8px;}
-.scroller-2hZ97C { padding-left: 0;}
-.scroller-2hZ97C > .content-3YMskv, .buttons-3JBrkn, .messagesPopout-24nkyi { padding-right: 10px !important; }
-.inviteRow-2L02ae {border-radius: 0; padding-left: 15px;}
-.sidebar-CFHs9e { padding-right : 0; margin: 0 40px 0 20px;}
-.sidebarRegion-VFTUkN { flex: unset;}
-.contentColumn-2hrIYH, .sidebarScrollable-1qPI87+.content-1rPSz4, .customScroller-26gWhv>div, .customColumn-Rb6toI, .hero-EvfTTA { max-width: none;}
-.featuresHeader-4YwLcc { margin-left: 95px;}
-.userSettingsVoice-iwdUCU, .container-3PXSwK { width: auto !important;}
-.menu-3sdvDG .layer-v9HyYc { margin-left: -8px;}*/
+/* User popout animation - Delete until "Others settings" if you don't want it */
+.headerPlaying-j0WQBV.header-2BwW8b, .headerSpotify-zpWxgT.header-2BwW8b, .headerStreaming-2FjmGz.header-2BwW8b, .headerXbox-3G-4PF.header-2BwW8b { padding-bottom: 30px;}
+.headerPlaying-j0WQBV.header-2BwW8b:after, .headerSpotify-zpWxgT.header-2BwW8b:after, .headerStreaming-2FjmGz.header-2BwW8b:after, .headerXbox-3G-4PF.header-2BwW8b:after { background: url('https://nyri4.github.io/Comfy/assets/wave.png'); background-size: 250px 20px; animation: animate 6s linear infinite !important; opacity: 1 !important;}
+.header-2BwW8b:after, .headerPlaying-j0WQBV:before, .headerSpotify-zpWxgT:before, .headerStreaming-2FjmGz:before, .headerXbox-3G-4PF:before { 
+    position: absolute;
+    content: "";
+    bottom: -1px;
+    left: 0;
+    width: 250px;
+    height: 20px;
+    z-index: -1;
+    animation: animate2 6s linear infinite;
+    animation-delay: 0s;
+    opacity: 0.5;
+}
+.headerPlaying-j0WQBV:before { background: url('https://nyri4.github.io/Comfy/assets/wave_playing.png'); background-size: 250px 20px;}
+.headerSpotify-zpWxgT:before { background: url('https://nyri4.github.io/Comfy/assets/wave_spotify.png'); background-size: 250px 20px;}
+.headerStreaming-2FjmGz:before { background: url('https://nyri4.github.io/Comfy/assets/wave_streaming.png'); background-size: 250px 20px;}
+.headerXbox-3G-4PF:before { background: url('https://nyri4.github.io/Comfy/assets/wave_xbox.png'); background-size: 250px 20px;}
+@keyframes animate { 0% { background-position-x: 0;} 100% { background-position-x: 250px;}}
+@keyframes animate2 {0% { background-position-x: 250px; } 100% { background-position-x: 0px;}}
+
+/* Comfy Spotify version -> Delete until Spotify if you don't want it */
+.container-6sXIoE{position: fixed;transition: left 0.5s;bottom: 62px;left: -196px;z-index: 3;width: 265px;background: var(--background-secondary-alt);border-radius: 0 5px 5px 0;border-bottom: none !important;}.barText-lmqc5O { display: none !important;}.container-6sXIoE > .inner-WRV6k5 { flex-direction: row-reverse;}.inner-WRV6k5 > .flex-1xMQg5 > .button-14-BFJ { margin: 0;}.container-6sXIoE:hover { left: 0px;}
+
+/* Better Spotify seek bar */
+.bar-g2ZMIm {position: absolute !important;left: -2px !important;bottom: -4px !important;width: 267px !important;height: 58px !important;-webkit-mask-image: linear-gradient(0.25turn, #0009, #0003);mask-image: linear-gradient(0.25turn, #0009, #0003);}.maximized-vv2Wr0 > .timeline-UWmgAx > .bar-g2ZMIm { height: 84px !important; }.barFill-Dhkah7, .timeline-UWmgAx:hover .barFill-Dhkah7 { background: var(--spotify-color) !important;}.inner-WRV6k5 { z-index: 1 !important;}.grabber-7sd5f5 { display: none !important;}.button-14-BFJ:hover { background: none !important;}.container-6sXIoE:not(.maximized-vv2Wr0) > .inner-WRV6k5 > .coverWrapper-YAplwJ { margin-right: 1px !important; margin-left:25px !important;width: 40px !important;height: 40px !important;}
+
+/* Avatar mask - Delete it if you want to see your status */
+.avatar-SmRMf2 > svg > foreignObject { mask: none; border-radius: var(--avatar-radius);}
+/*.avatar-SmRMf2 > svg > rect, .avatar-SmRMf2 > svg > svg > rect { opacity: 0; pointer-events: none;}*/
 
 
 :root { 
  
-     /* -- Addons -- */
+	--avatar-radius: 40%; /* Avatar roundess - You can't use it if you deleted the 2 lines of Avatar mask */
+
+	/* Avatar width in modals */
+	--avatar-width: 150px;
+
+	/* Server roundess */
+	--server-radius: 25px;
+
+	/* Colored emoji picker */
+	--colored-emoji: grayscale(0%); /* Change the value to "100%" if you want the basic one */
+
+	/* -- Others settings -- */
+
+	/* Mention color */
+	--mention-color-bar: #C66262;
+	--mention-color-background: #c662621f;
+	--mention-color-hover: #c6626226;
+
+	/* Spotify seek bar color */
+	--spotify-color: #8ec16a !important;
+
+    /* -- Others settings -- */
  
-     /* BetterAvatar Popout */
- 
-     --popout-status-icon: none; /* Set it to "block" if u want to have the status icon in big popouts */
-     --popout-status-mask: none; /* Set it to "url(#svg-mask-avatar-status-round-80)" if u want to enable the avatar mask in big popouts */
-     --avatar-radius: 10%; /* Change the roundness of avatar in big popouts, u need to disable the mask to use this */
- 
-     /* Colored emoji picker */
-     --colored-emoji: grayscale(0%); /* Change the value to "100%" if u want the basic one */
- 
-     /* -- Others settings -- */
- 
-     /* User settings color (Mute, Deafen and settings) */
+    /* User settings color (Mute, Deafen and settings) */
     --user-buttons-color: #e0e4e9;
 
     /* User settings spacing */

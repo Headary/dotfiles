@@ -35,6 +35,7 @@ set formatoptions-=cro                  " Stop newline continution of comments
 set clipboard=unnamedplus               " Copy paste between vim and everything else
 "set autochdir                           " Your working directory will always be the same as your working directory
 set ignorecase                          " ignore cases when searching
+set smartcase
 
 " set spell checking
 set spell spelllang=cs,en
@@ -43,7 +44,7 @@ set spell! " turn off by default
 set scrolloff=5
 
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vim alternatively you can run :source $MYVIMRC
-au BufRead,BufNewFile *.tex,*.md set colorcolumn=80
+au BufRead,BufNewFile *.tex,*.md,*.cls,*.sty set colorcolumn=80
 au BufRead,BufNewFile *.tex,*.md set spell 
 au BufRead,BufNewFile *.cls,*.sty set syntax=tex
 " You can't stop me

@@ -13,7 +13,7 @@ inoremap jk <Esc>
 inoremap kj <Esc>
 
 " Easy CAPS
-inoremap <c-u> <ESC>viwUi
+" inoremap <c-u> <ESC>viwUi
 nnoremap <c-u> viwU<Esc>
 
 " TAB in general mode will move to text buffer
@@ -40,10 +40,12 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" noremap ů l
-" noremap l k
-" noremap k j
-" noremap j h
+noremap ů l
+noremap l k
+noremap k j
+noremap j h
+
+map <PageUp> {
 
 nnoremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
@@ -57,4 +59,3 @@ imap <C-v> <esc>P
 
 nnoremap <silent> <F1> :VimtexCompile<CR>
 nnoremap <silent> <F5> :set spell!<CR>
-imap <C-BS> <C-W>

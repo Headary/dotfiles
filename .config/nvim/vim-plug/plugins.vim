@@ -14,6 +14,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'scrooloose/NERDTree'
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
+    " Surround with pairs
+    Plug 'machakann/vim-sandwich'
     " OneDark Theme
     Plug 'joshdick/onedark.vim'
     " Stable version of coc
@@ -28,7 +30,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'honza/vim-snippets'
     " colors
     Plug 'chrisbra/Colorizer'
-call plug#end()
+    " put cursor at the place of last time of file edit
+    Plug 'farmergreg/vim-lastplace'
+    call plug#end()
 
 " Auto install missing plugins
 autocmd VimEnter *
