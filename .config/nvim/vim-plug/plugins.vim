@@ -7,7 +7,6 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
-
     " Better Syntax Support
     Plug 'sheerun/vim-polyglot'
     " File Explorer
@@ -32,7 +31,13 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'chrisbra/Colorizer'
     " put cursor at the place of last time of file edit
     Plug 'farmergreg/vim-lastplace'
-    call plug#end()
+	" Processing support
+	Plug 'sophacles/vim-processing'
+	"  yuck for eww support
+	Plug 'elkowar/yuck.vim'
+	" Nette
+	Plug 'fpob/nette.vim'
+call plug#end()
 
 " Auto install missing plugins
 autocmd VimEnter *

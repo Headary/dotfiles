@@ -18,7 +18,7 @@ set conceallevel=0                      " So that I can see `` in markdown files
 set tabstop=4                           " Insert 2 spaces for a tab
 set shiftwidth=4                        " Change the number of space characters inserted for indentation
 set smarttab                            " Makes tabbing smarter will realize you have 2 vs 4
-set expandtab                           " Converts tabs to spaces
+set noexpandtab                           " Converts spaces to tabs
 set smartindent                         " Makes indenting smart
 set autoindent                          " Good auto indent
 set laststatus=0                        " Always display the status line
@@ -36,16 +36,25 @@ set clipboard=unnamedplus               " Copy paste between vim and everything 
 "set autochdir                           " Your working directory will always be the same as your working directory
 set ignorecase                          " ignore cases when searching
 set smartcase
+set nojoinspaces 						" do not insert double space after . ? ! when joining
 
 " set spell checking
-set spell spelllang=cs,en
+set spell spelllang=cs,en,de
 set spell! " turn off by default
 
 set scrolloff=5
 
-au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vim alternatively you can run :source $MYVIMRC
-au BufRead,BufNewFile *.tex,*.md,*.cls,*.sty set colorcolumn=80
+" show indentation and trainling spaces
+set list
+set listchars=tab:⍿·,trail:×
+
+" configure wildmenu
+set wildmode=longest:full,full
+set wildignorecase
+
+au BufRead,BufNewFile *.tex,*.md,*.cls,*.sty,*.txt set colorcolumn=80
 au BufRead,BufNewFile *.tex,*.md set spell 
 au BufRead,BufNewFile *.cls,*.sty set syntax=tex
+au BufRead,BufNewFile *.tex,*.sty,*.cls let g:AutoPairs={'(':')', '[':']', '{':'}',"'":"'",'"':'"', "`":"`", '```':'```', '"""':'"""', "'''":"'''", '$':'$'}
 " You can't stop me
 cmap w!! w !sudo tee %

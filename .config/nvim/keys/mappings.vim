@@ -59,3 +59,4 @@ imap <C-v> <esc>P
 
 nnoremap <silent> <F1> :VimtexCompile<CR>
 nnoremap <silent> <F5> :set spell!<CR>
+nnoremap <silent> <F6> :execute "set colorcolumn=" . (&colorcolumn == "" ? "80" : "")<CR>

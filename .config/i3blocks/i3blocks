@@ -37,8 +37,10 @@ separator=false
 signal=11
 TEXT_ON= Caps
 TEXT_OFF= Caps
+
 [mediaplayer]
 instance=spotify
+command=~/.local/libexec/i3blocks/mediaplayer | awk -v len=60 '{ if (length($0) > len) print substr($0, 1, len-3) "..."; else print; }'
 #label= 
 interval=5
 signal=10
@@ -79,7 +81,7 @@ command=~/.config/i3blocks/memory
 [memory]
 label= 
 instance=swap
-separator=false
+#separator=false
 interval=5
 command=~/.config/i3blocks/memory
 
@@ -96,8 +98,10 @@ label=
 interval=1
 min_width=  10.00
 command=~/.config/i3blocks/cpu_usage
-#separator=false
+separator=false
 
+[temperature]
+interval=1
 
 #[load_average]
 #interval=1
@@ -129,9 +133,6 @@ interval=1
 # Support multiple chips, though lm-sensors.
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
-#[temperature]
-#label=TEMP
-#interval=10
 
 # Key indicators
 #

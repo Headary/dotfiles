@@ -29,16 +29,16 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute   @DEFAULT_SINK@   toggle && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && pkill -RTMIN+10 i3blocks
 
-set $playerctl playerctl --player=spotify,firefox
+set $playerctl playerctl --player=spotify,vlc,firefox
 bindsym XF86AudioPlay exec "$playerctl play-pause"
 #bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec "$playerctl next"
 bindsym XF86AudioPrev exec "$playerctl previous"
 bindsym XF86AudioStop exec "$playerctl stop"
 
-#XF86Explorer
+bindsym XF86Explorer exec firefox
 #XF86HomePage
-#XF86Mail
+bindsym XF86Mail exec discord
 bindsym XF86Tools exec spotify
 
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
@@ -100,9 +100,9 @@ set $ws2 "2: "
 set $ws3 "3: "
 set $ws4 "4"
 set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7: "
-set $ws8 "8"
+set $ws6 "6: "
+set $ws7 "7"
+set $ws8 "8: "
 set $ws9 "9: "
 set $ws10 "10: "
 
@@ -155,7 +155,7 @@ workspace $ws3 output $monitor1
 workspace $ws4 output $monitor1
 workspace $ws5 output $monitor1
 workspace $ws6 output $monitor1
-workspace $ws7 output $monitor1
+workspace $ws7 output $monitor2
 workspace $ws8 output $monitor2
 workspace $ws9 output $monitor2
 workspace $ws10 output $monitor2
@@ -265,6 +265,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 bar {
     status_command i3blocks -c ~/.config/i3blocks/i3blocks 
 	position top
+	tray_output primary
 	colors {
 		background $inactive-bg-color
         separator #757575
@@ -286,10 +287,11 @@ bindsym $mod+d exec rofi -show drun
 bindsym $mod+Return exec alacritty
 
 # Assing workspaces to programs
-assign [class="^Firefox"] $ws1
+assign [class="^firefox"] $ws1
 assign [class="^Texmaker"] $ws3
-assign [class="^Steam"] $ws7
-assign [title="^Steam"] $ws7
+assign [class="^Steam"] $ws6
+assign [title="^Steam"] $ws6
+assign [class="^Signal"] $ws8
 assign [class="^discord"] $ws9
 for_window [class="Spotify"] move to workspace $ws10
 

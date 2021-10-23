@@ -18,21 +18,24 @@ loginbox=000000ff
 font="Ubuntu Mono"
 locktext='Type password to unlock...'
 
+killall -SIGUSR1 dunst # pause dunst
 i3lock \
-    -n -t -c 000000 -S 1\
+    -n -c 000000 -S 1\
     -i "$HOME/.cache/i3lock/$(($(date +%k)/1)).jpg" \
-    --timepos='x+45:h-70' \
-    --datepos='x+47:h-45' \
-    --clock  --datestr "%A, %d.%m.%Y" \
+    --time-pos='x+45:h-70' \
+    --date-pos='x+47:h-45' \
+    --clock  --date-str "%A, %d.%m.%Y" \
     --date-align 1 --time-align 1\
-    --insidecolor=$background --ringcolor=$black --line-uses-inside \
-    --keyhlcolor=$green --bshlcolor=$red --separatorcolor=$transparent \
-    --insidevercolor=$background --insidewrongcolor=$background \
-    --ringvercolor=$blue --ringwrongcolor=$red --indpos='2360:h/2' \
-    --radius=90 --ring-width=10 --veriftext='' --wrongtext='Wrong' \
-    --verifcolor=$foreground --timecolor=$foreground \
-    --datecolor=$foreground --wrongcolor=$foreground\
+    --inside-color=$background --ring-color=$black --line-uses-inside \
+    --keyhl-color=$green --bshl-color=$red --separator-color=$transparent \
+    --insidever-color=$background --insidewrong-color=$background \
+    --ringver-color=$blue --ringwrong-color=$red --ind-pos='2360:h/2' \
+    --radius=90 --ring-width=10 --verif-text='' --wrong-text='Wrong' \
+    --verif-color=$foreground --modif-color=$foreground --time-color=$foreground \
+    --date-color=$foreground --wrong-color=$foreground\
     --time-font="$font" --date-font="$font" --layout-font="$font" \
     --verif-font="$font" --wrong-font="$font" \
-    --noinputtext='' --force-clock \
+    --noinput-text='' --force-clock \
     --pass-media-keys --pass-volume-keys
+
+killall -SIGUSR2 dunst # resume dunst
