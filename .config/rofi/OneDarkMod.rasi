@@ -64,10 +64,15 @@
     spacing:      2px ;
     scrollbar:    true;
     padding:      2px 0px 0px ;
+	columns: 2;
 }
 #element {
     border:  0;
     padding: 1px ;
+}
+#element-text {
+    background-color: inherit;
+    text-color:       inherit;
 }
 #element.normal.normal {
     background-color: @normal-background;
@@ -151,4 +156,5 @@ element {
 }
 element-icon {
     size: 16;
+	background-color: inherit;
 }
