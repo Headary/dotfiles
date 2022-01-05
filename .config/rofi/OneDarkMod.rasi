@@ -38,6 +38,7 @@
     spacing:                     3;
     separatorcolor:              @foreground;
     font:                        "UbuntuMono 12";
+	width: 50%;
 }
 
 #window {
@@ -68,6 +69,10 @@
 #element {
     border:  0;
     padding: 1px ;
+}
+#element-text {
+    background-color: inherit;
+    text-color:       inherit;
 }
 #element.normal.normal {
     background-color: @normal-background;
@@ -151,4 +156,5 @@ element {
 }
 element-icon {
     size: 16;
+	background-color: inherit;
 }
