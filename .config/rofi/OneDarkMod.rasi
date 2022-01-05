@@ -44,7 +44,7 @@
     background-color: @background;
     border:           3;
     padding:          5;
-	width: 30%
+	width: 50%;
 }
 #mainbox {
     border:  0;
