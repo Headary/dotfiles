@@ -38,6 +38,7 @@
     spacing:                     3;
     separatorcolor:              @foreground;
     font:                        "UbuntuMono 12";
+	width: 50%;
 }
 
 #window {

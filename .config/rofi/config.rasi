@@ -1,8 +1,7 @@
 configuration {
 	modi: "window,run,ssh,drun,keys,windowcd,combi";
-	width: 40;
+/*	width: 40px; */
 /*	lines: 15;*/
-	columns: 2;
 /*	font: "Ubuntu Mono 12";*/
 /*	bw: 1;*/
 /*	location: 0;*/
@@ -144,3 +143,6 @@ configuration {
 }
 
 @theme "OneDarkMod.rasi"
+listview {
+	columns: 2;
+}
