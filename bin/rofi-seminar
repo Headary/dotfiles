@@ -1,0 +1,11 @@
+#!/bin/bash
+
+TARGET="$HOME/Documents/seminars"
+DIRS="vyfuk10 vyfuk9 fykos33 desetirocenka fks-texmf fks-scripts fks-templates dokuwiki-web-vyfuk"
+CHOSEN=$(echo $DIRS | sed "s/ /\n/g" | rofi -dmenu -theme-str 'window{width:25%;}listview{columns:1;}' -p "Select repository")
+
+if [ -d "$TARGET/$CHOSEN" ]; then
+	echo "$TARGET/$CHOSEN"
+else
+	echo "$TARGET"
+fi

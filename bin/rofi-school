@@ -1,0 +1,7 @@
+#!/bin/bash
+
+TARGET="$HOME/Documents/school"
+DIRS=$(ls -l $TARGET | grep ^d | awk '{print $8,$9}')
+CHOSEN=$(echo $DIRS | sed "s/ /\n/g" | rofi -dmenu -theme-str 'window{width:25%;}listview{columns:1;}' -p "School")
+ENDPATH="$TARGET/$CHOSEN"
+echo $ENDPATH
