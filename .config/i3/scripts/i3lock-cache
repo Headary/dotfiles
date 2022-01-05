@@ -6,8 +6,8 @@ cache="$HOME/.cache/i3lock"
 TMP="/tmp/i3lock"
 blur_level=3
 
-mkdir -p $cache 
-mkdir -p $TMP 
+mkdir -p $cache
+mkdir -p $TMP
 
 check_file_exists () {
     if [[ ! -f "$1" ]]; then

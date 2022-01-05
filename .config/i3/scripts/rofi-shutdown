@@ -8,7 +8,7 @@ Lock\0icon\x1frofi-lock-screen\n\
 Logout\0icon\x1frofi-log-out\n\
 Suspend\0icon\x1frofi-suspend\n\
 Suspend then hibernate\0icon\x1frofi-suspend-hibernate" \
-	| rofi -dmenu -i -width 20 -lines 7 -p "Power")
+	| rofi -dmenu -i -theme-str '*{lines:7;}window{width:15%;}listview{columns:1;}' -p "Power")
 
 # Info about some states are available here:
 # https://www.freedesktop.org/software/systemd/man/systemd-sleep.conf.html#Description
