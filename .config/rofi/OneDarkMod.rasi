@@ -38,13 +38,13 @@
     spacing:                     3;
     separatorcolor:              @foreground;
     font:                        "UbuntuMono 12";
-	width: 50%;
 }
 
 #window {
     background-color: @background;
     border:           3;
     padding:          5;
+	width: 30%
 }
 #mainbox {
     border:  0;
